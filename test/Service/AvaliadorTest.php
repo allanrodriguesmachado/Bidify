@@ -24,6 +24,22 @@ class AvaliadorTest extends TestCase
         $avaliador->avalia($leilao);
 
         $this->assertEquals("3000", $avaliador->getMaiorValor());
+    }
+
+    public function testMenorValor()
+    {
+        $leilao = new Leilao('Fiat 147 0KM');
+        $userOne = new Usuario('Allan');
+        $userTwo = new Usuario('Allan');
+        $lanceOne = new Lance($userOne,'3000');
+        $lanceTwo = new Lance($userTwo,'2000');
+
+        $leilao->recebeLance($lanceOne);
+        $leilao->recebeLance($lanceTwo);
+
+        $avaliador = new Avaliador();
+        $avaliador->avalia($leilao);
+
         $this->assertEquals("2000", $avaliador->getMenorValor());
     }
 }
