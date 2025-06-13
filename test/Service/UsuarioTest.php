@@ -18,12 +18,8 @@ class UsuarioTest extends TestCase
 
     public function testTemNomeESobrenome()
     {
-        $nomeCompleto = new Usuario("Allan Rodrigues");
-
-        $partes = explode(' ', trim($nomeCompleto->getNome()));
-
-
-        $temNomeESobrenome = count($partes) >= 2 && !in_array('', $partes);
-        $this->assertTrue($temNomeESobrenome, "O nome deve conter nome e sobrenome.");
+        $this->assertNotEmpty(explode(' ',
+            trim((new Usuario("Allan Rodrigues"))->getNome())),
+            "O nome deve conter nome e sobrenome.");
     }
 }
