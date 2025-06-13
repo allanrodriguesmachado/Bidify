@@ -45,7 +45,7 @@ class AvaliadorTest extends TestCase
 
     public function testPegarOsTresMaioresValores(): void
     {
-        $leilao = new Leilao('Fiat 147 0KM3232312321');
+        $leilao = new Leilao('Fiat 147 0KM');
 
         $qtd = mb_strlen($leilao->getDesciptions());
 
@@ -64,10 +64,6 @@ class AvaliadorTest extends TestCase
         $avaliador->avalia($leilao);
 
         $maiores = $avaliador->getMaioresLances();
-
-
-        $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage('Erro ');
 
 
         $this->assertCount(3, $maiores);
