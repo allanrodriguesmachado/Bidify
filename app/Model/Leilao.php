@@ -4,11 +4,16 @@ namespace App\Model;
 
 class Leilao
 {
-    private $lances;
+    private array $lances;
 
     public function __construct(private readonly string $descricao)
     {
         $this->lances = [];
+    }
+
+    public function getDesciptions(): string
+    {
+        return $this->descricao;
     }
 
     public function recebeLance(Lance $lance)

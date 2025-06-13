@@ -19,7 +19,7 @@ services:
       - .:/var/www/webdev
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - "80:80"
+      - "80:81"
     links:
       - unit_php
 
