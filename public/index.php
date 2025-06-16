@@ -23,9 +23,8 @@ $leilao->recebeLance($lanceFour);
 
 $avaliador = new Avaliador();
 $avaliador->avalia($leilao);
-//
+
 //$numeroFormato = number_format($avaliador->getMaiorValor(), "2", ".", ",") . PHP_EOL;
 //$numeroFormato = number_format($avaliador->getMenorValor(), "2", ".", ",") . PHP_EOL;
-
 
 //echo sprintf("Valor: %s", $numeroFormato);

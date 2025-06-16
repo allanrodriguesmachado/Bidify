@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class Lance extends \App\Model\Leilao
+class Lance extends Leilao
 {
     public function __construct(private readonly Usuario $usuario, private readonly float $valor)
     {

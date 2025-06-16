@@ -51,9 +51,6 @@ class AvaliadorTest extends TestCase
         $this->assertEquals("2000", $maiores[2]->getValor(), "Baixo Valor");
     }
 
-    /**
-     * @return Avaliador
-     */
     public function getAvaliador(): Avaliador
     {
         $leilao = new Leilao('Fiat 147 0KM');
