@@ -9,11 +9,7 @@ class UsuarioTest extends TestCase
 {
     public function testUsuario()
     {
-        $usuario = new Usuario("Allan Rodrigues");
-
-        $qtdCarcteres = mb_strlen($usuario->getNome());
-
-        $this->assertLessThan(25, $qtdCarcteres, "Atencao! Atingiu o limite");
+        $this->assertLessThan(25, mb_strlen((new Usuario("Allan Rodrigues"))->getNome()), "Atencao! Atingiu o limite");
     }
 
     public function testTemNomeESobrenome()
