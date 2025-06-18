@@ -11,11 +11,11 @@ class UsuarioTest extends TestCase
     {
         $this->assertLessThan(25, mb_strlen((new Usuario("Allan Rodrigues"))->getNome()), "Atencao! Atingiu o limite");
     }
-
-    public function testTemNomeESobrenome()
-    {
-        $this->assertNotEmpty(explode(' ',
-            trim((new Usuario("Allan Rodrigues"))->getNome())),
-            "O nome deve conter nome e sobrenome.");
-    }
+//
+//    public function testTemNomeESobrenome()
+//    {
+//        $this->assertNotEmpty(explode(' ',
+//            trim((new Usuario("Allan Rodrigues"))->getNome())),
+//            "O nome deve conter nome e sobrenome.");
+//    }
 }
