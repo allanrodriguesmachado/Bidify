@@ -29,12 +29,11 @@ class AvaliadorTest extends TestCase
         $this->avaliador->avalia($leilao);
         $this->assertEquals("3000", $this->avaliador->getMaiorValor());
     }
-
     public static function getAvaliador(): array
     {
         $leilao = new Leilao('Fiat 147 0KM');
         $userOne = new Usuario('Allan');
-        $userTwo = new Usuario('Allan');
+        $userTwo = new Usuario('Rodrigues');
         $lanceOne = new Lance($userOne, '3000');
         $lanceTwo = new Lance($userTwo, '2000');
 

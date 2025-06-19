@@ -11,21 +11,22 @@ class Leilao
         $this->lances = [];
     }
 
-    public function getDesciptions(): string
+    public function recebeLance(Lance $lance): void
     {
-        return $this->descricao;
-    }
+        if(!empty($this->lances) && $lance->getUsuario() == $this->lanceDoUltimoUsuario()) {
+            return;
+        }
 
-    public function recebeLance(Lance $lance)
-    {
         $this->lances[] = $lance;
     }
 
-    /**
-     * @return Lance[]
-     */
     public function getLances(): array
     {
         return $this->lances;
+    }
+
+    private function lanceDoUltimoUsuario()
+    {
+        return $this->lances[count($this->lances) - 1]->getUsuario();
     }
 }

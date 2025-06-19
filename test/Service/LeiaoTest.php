@@ -2,6 +2,7 @@
 
 namespace App\Test\Service;
 
+use App\Model\Avaliador;
 use App\Model\Lance;
 use App\Model\Leilao;
 use App\Model\Usuario;
@@ -10,6 +11,17 @@ use PHPUnit\Framework\TestCase;
 
 class LeiaoTest extends TestCase
 {
+    public function testLeilaoNaoDeveReceberLancesRepetidos()
+    {
+        $allan = new Usuario("Allan");
+
+        $leilao = new Leilao("Ford KA");
+        $leilao->recebeLance(new Lance($allan, "1000"));
+        $leilao->recebeLance(new Lance($allan, "2000"));
+
+        self::assertCount(1, $leilao->getLances());
+        self::assertEquals("1000", $leilao->getLances()[0]->getValor());
+    }
     #[DataProvider('getLances')]
     public function testLeilaoDevReceberLances(int $qtdLeilao, Leilao $leilao, array $valores)
     {
@@ -18,7 +30,6 @@ class LeiaoTest extends TestCase
             self::assertEquals($value, $leilao->getLances()[$id]->getValor());
         }
     }
-
     public static function getLances(): array
     {
         $jhon = new Usuario("Jhon");
